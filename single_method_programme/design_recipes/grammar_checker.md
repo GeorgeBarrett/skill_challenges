@@ -20,11 +20,12 @@ _Make a list of examples of what the method will take and return._
 
 ```ruby
 
-grammar_checker("this is a sentence") => ("This is a sentence.")
-grammar_checker("word") => ("Word.")
-grammar_checker(nil) throws an error
-grammar_checker(666) throws an error
-grammar_checker("") => throws an error
+grammar_checker("This is a sentence.") => true
+grammar_checker("word") => false
+grammar_checker(nil) => throws an error
+grammar_checker(666) => false
+grammar_checker("") => false
+grammar_checker(true) => false
 
 ```
 
