@@ -6,38 +6,27 @@ I want to see an estimate of reading time for a text, assuming that I can read 2
 
 ## 2. Design the Method Signature
 
-reading_time(str)
-
-return: integer
-
-_Include the name of the method, its parameters, return value, and side effects._
-
 ```ruby
-# EXAMPLE
+text_time = reading_time(text)
 
-# `extract_upper` extracts uppercase words from a string
-uppercase_words = extract_uppercase(mixed_words)
-
-mixed_words: a string (e.g. "hello WORLD")
-uppercase_words: a list of strings (e.g. ["WORLD"])
-
-# The method doesn't print anything or have any other side-effects
+text = a given string (e.g. "Like this string here")
+text_time: float numeral fraction of a minute  (e.g. 0.0005)
 ```
+_Include the name of the method, its parameters, return value, and side effects._
 
 ## 3. Create Examples as Tests
 
 _Make a list of examples of what the method will take and return._
 
 ```ruby
-# EXAMPLE
 
-extract_uppercase("hello WORLD") => ["WORLD"]
-extract_uppercase("HELLO WORLD") => ["HELLO", "WORLD"]
-extract_uppercase("hello world") => []
-extract_uppercase("hello WoRLD") => []
-extract_uppercase("hello WORLD!") => ["WORLD"]
-extract_uppercase("") => []
-extract_uppercase(nil) throws an error
+reading_time("") => 0.0
+reading_time("text") => 0.005
+reading_time("text " * 200) => 1
+reading_time("texttexttext") => 0.005
+reading_time(nil) throws an error
+reading_time(666) throws an error
+
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
