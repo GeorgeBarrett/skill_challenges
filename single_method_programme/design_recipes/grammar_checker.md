@@ -21,6 +21,8 @@ _Make a list of examples of what the method will take and return._
 ```ruby
 
 grammar_checker("This is a sentence.") => true
+grammar_checker("This is a sentence!") => true
+grammar_checker("This is a sentence?") => true
 grammar_checker("word") => false
 grammar_checker(nil) => throws an error
 grammar_checker(666) => false
