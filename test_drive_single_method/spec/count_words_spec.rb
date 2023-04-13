@@ -7,6 +7,9 @@ RSpec.describe "count_words method" do
   result = count_words("counting words")
   expect(result).to eq 2
 
+  result = count_words("counting more words")
+  expect(result).to eq 3
+
   end
 end
 
