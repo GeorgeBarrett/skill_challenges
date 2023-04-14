@@ -9,8 +9,8 @@ I want to check if a text includes the string #TODO.
 ```ruby
 todo_checker = todo(text)
 
-text = a given string (e.g. "like this string here")
-todo_checker: ensures the string includes #TODO
+text = a given string (e.g. "Like this string here")
+todo_checker: checks if string includes `#TODO` 
 ```
 _Include the name of the method, its parameters, return value, and side effects._
 
@@ -20,15 +20,12 @@ _Make a list of examples of what the method will take and return._
 
 ```ruby
 
-todo("#TODO") => true
-todo("TODO") => false
-todo("#") => false
-todo("random string")
-todo("") => false
-todo("#todo") => false
-todo(666) => false
-todo(true) => false
-todo(nil) throws an error
+todo_checker("#TODO") => true
+todo_checker("#todo") => false
+todo_checker("#ToDo") => false
+todo_checker("todo") => false
+todo_checker("#TODO get some clothes from bristol")
+todo_checker(666) throws an error
 
 ```
 
