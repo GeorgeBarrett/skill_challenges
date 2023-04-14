@@ -23,9 +23,10 @@ _Make a list of examples of what the method will take and return._
 todo_checker("#TODO") => true
 todo_checker("#todo") => false
 todo_checker("#ToDo") => false
-todo_checker("todo") => false
-todo_checker("#TODO get some clothes from bristol")
+todo_checker("#todo get some clothes from bristol") => false
+todo_checker("#TODO get some clothes from bristol") => true
 todo_checker(666) throws an error
+todo_checker("") throws an error
 
 ```
 
