@@ -14,7 +14,7 @@ class DiaryEntry
   end
 
   def count_words
-    return @contents.split(" ").length
+    return words.length
   end
 
   def reading_time(wpm)
@@ -23,6 +23,8 @@ class DiaryEntry
   end
 
   def reading_chunk(wpm, minutes)
+    @contents
+    
     # `wpm` is an integer representing the number of words the user can read per minute
     # `minutes` is an integer representing the number of minutes the user has to read
     # Returns a string with a chunk of the contents that the user could read
@@ -31,5 +33,14 @@ class DiaryEntry
     # what has already been read, until the contents is fully read.
     # The next call after that it should restart from the beginning.
   end
+
+  private
+
+  def words
+    @contents.split(" ").length
+  end
+
 end
+
+
   
