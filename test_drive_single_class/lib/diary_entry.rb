@@ -23,7 +23,9 @@ class DiaryEntry
   end
 
   def reading_chunk(wpm, minutes)
-    @contents
+    no_words_we_can_read = wpm * minutes
+    words_list = words[0, no_words_we_can_read]
+    return words_list.join(" ")
     
     # `wpm` is an integer representing the number of words the user can read per minute
     # `minutes` is an integer representing the number of minutes the user has to read
@@ -37,7 +39,7 @@ class DiaryEntry
   private
 
   def words
-    @contents.split(" ").length
+    return @contents.split(" ").length
   end
 
 end
