@@ -37,8 +37,6 @@ end
 ## 3. Create Examples as Tests
 
  
-
-
 _Make a list of examples of how the class will behave in different situations._
 
 ```ruby
