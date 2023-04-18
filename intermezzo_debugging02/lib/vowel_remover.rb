@@ -7,11 +7,11 @@ class VowelRemover
   def remove_vowels()
     i = 0
     while i < @text.length()
-      if @vowels.include? @text[i].downcase
-        @text = @text.slice(0,i) + @text.slice(i+1..-1)
-        i = i - 1
+      if @vowels.include?(@text[i].downcase)
+        @text.slice!(i)
+      else
+        i += 1
       end
-      i += 1
     end
     return @text
   end
