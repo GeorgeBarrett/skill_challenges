@@ -22,15 +22,18 @@ def initialiser
 end
 
 def add(todo) #todo is a string
-  #populate array 
+  #populate array
+  #return nothing 
 end
 
 def list
-  return list
+  #returns list 
+  #only returns list items that are not completed
 end
 
 def mark_complete(completed_task) #completed_task is a string
- #user will enter a todo that they have done and this will then disappear from the @todo_list array
+  #returns nothing
+  #fails if task doesn't exist
 end
 ```
 
@@ -41,9 +44,33 @@ _Make a list of examples of how the class will behave in different situations._
 
 ```ruby
 
-@todo_list = ToDo.new() => populating an array of todo items
+todo_list = ToDo.new()
 
-@todo_list = ToDo.new()
+todo_list.list # => []
+
+todo_list = Todo.new()
+todo_list.add("Get some clothes")
+todo_list.list # => ["Get some clothes"]
+
+todo_list = Todo.new()
+todo_list.add("Get some clothes")
+todo_list.add("Wash some clothes")
+todo_list.list # => ["Get some clothes", "wash my clothes"]
+
+todo_list = Todo.new()
+todo_list.add("Get some clothes")
+todo_list.add("Wash some clothes")
+todo_list.remove("Wash some clothes")
+todo_list.list # => ["Get some clothes"]
+
+todo_list = Todo.new()
+todo_list.add("Get some clothes")
+todo_list.complete("Wash some zebras")
+todo_list.list # fails "Task does not exist"
+
+
+
+
 @todo_list.add("") => "Please enter a todo item." => throws an error
 @todo_list.add("Get clothes") => add this to array
 @todo_list.mark_complete("Get clothes") => remove this from array
