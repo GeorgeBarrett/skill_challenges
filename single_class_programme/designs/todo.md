@@ -44,7 +44,7 @@ _Make a list of examples of how the class will behave in different situations._
 
 ```ruby
 
-todo_list = ToDo.new()
+todo_list = Todo.new()
 
 todo_list.list # => []
 
