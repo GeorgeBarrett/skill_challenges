@@ -60,5 +60,15 @@ RSpec.describe "integration" do
         expect(result).to eq diary_entry_1
       end
     end
+
+    context "where there is one entry and it unreadbale in the time" do
+      it "returns nil" do
+        diary = Diary.new
+        diary_entry_1 = DiaryEntry.new("my title", "my contents longer")
+        diary.add(diary_entry_1)
+        result = diary.find_best_entry_for_reading_time(2, 1)
+        expect(result).to eq nil
+      end
+    end
   end
 end
