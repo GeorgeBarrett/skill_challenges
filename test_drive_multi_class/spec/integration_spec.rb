@@ -23,6 +23,14 @@ RSpec.describe "integration" do
   end
 
   describe "reading time behaviour" do
+
+    it "fails when wpm is 0" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("my title", "my contents 1")
+      diary.add(diary_entry_1)
+      expect { diary.reading_time(0) }.to raise_error "WPM must be positive."
+    end
+
     it "calculates the reading time for all entries where it fits exactly" do
       diary = Diary.new
       diary_entry_1 = DiaryEntry.new("my title", "my contents 1")
@@ -31,6 +39,15 @@ RSpec.describe "integration" do
       diary.add(diary_entry_2)
       expect(diary.reading_time(2)).to eq 3
     end
-  end
 
+    it "calculates the reading time for all entries that fall over a minute" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("my title", "my contents")
+      diary_entry_2 = DiaryEntry.new("my title 2", "my contents 2")
+      diary.add(diary_entry_1)
+      diary.add(diary_entry_2)
+      expect(diary.reading_time(2)).to eq 3
+    end
+
+  end
 end

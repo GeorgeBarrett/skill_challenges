@@ -17,6 +17,7 @@ class Diary
   end
 
   def reading_time(wpm)
+    fail "WPM must be positive." unless wpm.positive?
     return (count_words / wpm.to_f).ceil 
   end
 
