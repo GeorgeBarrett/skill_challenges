@@ -18,12 +18,18 @@ RSpec.describe TodoList do
       todo_list.add(todo_2)
       expect(todo_list.incomplete).to eq [todo, todo_2] 
     end
-  
-    xit "raise error if todo already exists" do
-      todo_list = TodoList()
-      todo = Todo.new('something')
-      todo_2 = Todo.new('something')
-      expect { todo_2 }.to raise_error "Todo already exists."
+
+    it "returns single and multiple complete todo/todos" do
+      todo_list = TodoList.new
+      todo = Todo.new('lalala')
+      todo_2 = Todo.new('too much')
+      todo_list.add(todo)
+      todo_list.add(todo_2)
+      todo.mark_done!
+      todo_2.mark_done!
+      todo.done?
+      todo_2.done?
+      expect(todo_list.complete).to eq [todo, todo_2]
     end
   end
 end
