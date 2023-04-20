@@ -15,7 +15,21 @@ class Diary
     @entries
   end
 
-  def diary_entries_based_speed(minutes, wpm)
+  def diary_entries_based_on_speed(minutes, wpm)
+    words_we_can_read = minutes * wpm
+    best_fit = []
+    
+    @entries.each do |entry| 
+      if entry.split.length == words_we_can_read
+        best_fit << entry
+      end
+    end
+    
+    if best_fit.empty? 
+      fail "There are no suitable diary entries."
+    else
+      return best_fit
+    end 
   end
   
   def list_mobile_numbers

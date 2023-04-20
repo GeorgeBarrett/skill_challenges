@@ -27,4 +27,21 @@ RSpec.describe do
     expect(diary.list_mobile_numbers).to eq ["07927829971", "07927829972"]
     end
   end
+
+  context 'filters diary entries based on speed' do
+    it "it returns the entry that best matches the reading speed and time available" do
+      diary = Diary.new
+      diary.add_entry("my entry")
+      diary.add_entry("more and more and more words")
+      expect(diary.diary_entries_based_on_speed(3, 2)).to eq ["more and more and more words"]
+    end
+
+    it "fails if there are no entries that match how much time i have" do
+      diary = Diary.new
+      diary.add_entry("my entry")
+      diary.add_entry("blah blah blah meh")
+      expect { diary.diary_entries_based_on_speed(3, 2) }.to raise_error "There are no suitable diary entries."
+    end
+  end
+
 end
