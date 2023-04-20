@@ -4,7 +4,8 @@ class Diary
     @mobile_numbers = []
   end
 
-  def add_entry(entry) 
+  def add_entry(entry)
+    @entries << entry 
   end
 
   def add_todo(todo)
