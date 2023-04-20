@@ -1,4 +1,4 @@
-class todo
+class Todo
   def initialize
     @todo = []
     @completed_todos = []
