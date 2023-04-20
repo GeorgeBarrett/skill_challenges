@@ -8,6 +8,7 @@ class Diary
   end
 
   def add_todo(todo)
+  end
 
   def list_entries
     @entries
