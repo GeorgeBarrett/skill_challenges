@@ -1,7 +1,7 @@
 class Todo
   def initialize
     @todo = []
-    @completed_todos = []
+    @completed_todos = false
   end
 
   def add(todo)
@@ -9,6 +9,11 @@ class Todo
   end
 
   def marked_complete
+    @completed_todos = true
+  end
+
+  def done?
+    return @completed_todos
   end
 
   def list

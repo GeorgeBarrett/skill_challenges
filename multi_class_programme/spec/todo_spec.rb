@@ -15,4 +15,13 @@ RSpec.describe 'adds a todo to the list' do
     
     expect(todo.list).to eq ["discover infinite", "rediscover infinite"]
   end
+
+  it 'lists the added todos when multiple are added' do
+    todo = Todo.new
+    todo.add("discover infinite")
+    todo.marked_complete
+    
+    expect(todo.done?).to eq true
+  end
+
 end
