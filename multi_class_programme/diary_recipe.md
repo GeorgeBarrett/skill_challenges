@@ -136,8 +136,6 @@ todo = Todo.new
 todo.add("discover infinte")
 expect(todo.list).to eq "discover infinite"
 
-
-
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
