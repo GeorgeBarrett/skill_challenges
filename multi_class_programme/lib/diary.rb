@@ -19,6 +19,11 @@ class Diary
   end
   
   def list_mobile_numbers
-    # if an entry is 11 numbers then throw into mobile_numbers array
+    mobile_number = @entries
+    mobile_number.map! do |entry|
+      entry.scan(/\d+/)
+    end
+    @mobile_numbers << mobile_number
+    return @mobile_numbers.flatten
   end
 end
