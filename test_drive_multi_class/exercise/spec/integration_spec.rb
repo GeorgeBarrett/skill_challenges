@@ -51,6 +51,14 @@ RSpec.describe "integration" do
   end
 
   describe "best reading time behaviour" do
+
+    it "fails where wpm is 0" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("my title", "my contents")
+      diary.add(diary_entry_1)
+      expect { diary.find_best_entry_for_reading_time(0, 1) }. to raise_error("WPM must be positive.")
+    end
+
     context "where there is just one entry and it is readable in the time" do
       it "returns that entry" do
         diary = Diary.new
