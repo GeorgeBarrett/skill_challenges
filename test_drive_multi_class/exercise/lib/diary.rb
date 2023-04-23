@@ -22,13 +22,16 @@ class Diary
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
-    readable_entries = @entries.filter do |entry|
+    readable_entries(wpm, minutes).max_by(&:count_words)
+  end
+
+  private
+
+  def readable_entries(wpm, minutes)
+    return @entries.filter do |entry|
       entry.reading_time(wpm) <= minutes
     end
-    sorted_by_longest = readable_entries.sort_by do |entry| 
-      entry.count_words
-    end
-    sorted_by_longest.last
   end
+
 end
 
