@@ -70,5 +70,18 @@ RSpec.describe "integration" do
         expect(result).to eq nil
       end
     end
+
+    context "where we have miltiple entries" do 
+      it "returns the longest entry the user could read in this time" do
+        diary = Diary.new
+        best_entry = DiaryEntry.new("my title", "one two")
+        diary.add(DiaryEntry.new("my title", "one"))
+        diary.add(best_entry)
+        diary.add(DiaryEntry.new("my title", "one two three"))
+        diary.add(DiaryEntry.new("my title", "one two three"))
+        result = diary.find_best_entry_for_reading_time(2, 1)
+        expect(result).to eq best_entry
+      end
+    end
   end
 end
